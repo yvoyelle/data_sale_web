@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Validación de Datos con PHP</title>
+    <meta charset="utf8" />
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css" href="validar-datos.php">
+    <link rel="stylesheet" type="text/css" href="tarea1.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <h1 th:text="${mesaje}"></h1>
+    <section class="seccion">
+        <h1 class="text-center my-5 heading">Contact</h1>
+
+        <div class="container-xl">
+            <div class="row">
+
+                <div class="col-sm-6 col-md-4">
+                    <input class="form-control form-control-lg" type="text" placeholder="Full name"
+                        aria-label=".form-control-lg example">
+                    </br>
+
+
+                    <input class="form-control" type="text" placeholder="Phone number"
+                        aria-label="default input example">
+                    </br>
+
+                    <input class="form-control" type="email" placeholder="your email"
+                        aria-label="default input example">
+                    </br>
+
+
+                    <input class="form-control form-control-sm" type="text" placeholder="Description"
+                        aria-label=".form-control-sm example">
+                    </br>
+                    <button type="button" class="btn btn-primary btn-sm">submit</button>
+
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div th:if="${peoples !=null and !peoples.empty}">
+
+
+                        <table  border="1">
+                            <tr>
+                                <th>name </th>
+                                <th>phone </th>
+                                <th>Email </th>
+                                <th>comment </th>
+                            </tr>
+                            <tr th:each="people :${peoples}">
+
+                                <td th:text="${people.Email}"></td>
+
+                                <td th:text="${people.phone}"></td>
+
+                                <td th:text="${people.Message}"></td>
+
+                                <td th:text="${people.name}"></td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div th:if="${peoples == null or peoples.empty}">
+                        the lis is empty
+                    </div>
+
+
+
+                </div>
+
+    </section>
+</body>
+
+</html>
